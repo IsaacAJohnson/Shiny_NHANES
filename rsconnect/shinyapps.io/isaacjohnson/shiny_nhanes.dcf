@@ -1,0 +1,11 @@
+name: shiny_nhanes
+title:
+username:
+account: isaacjohnson
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8877231
+bundleId: 7101375
+url: https://isaacjohnson.shinyapps.io/shiny_nhanes/
+when: 1681764698.16282
+lastSyncTime: 1681764698.16283
