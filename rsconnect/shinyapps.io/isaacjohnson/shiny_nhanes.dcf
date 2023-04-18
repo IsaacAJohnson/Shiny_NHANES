@@ -5,7 +5,9 @@ account: isaacjohnson
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 8877231
-bundleId: 7101375
+bundleId: 7102135
 url: https://isaacjohnson.shinyapps.io/shiny_nhanes/
-when: 1681764698.16282
-lastSyncTime: 1681764698.16283
+when: 1681782308.96262
+lastSyncTime: 1681782308.96263
+asMultiple: FALSE
+asStatic: FALSE
