@@ -70,7 +70,7 @@ ui <- dashboardPage(
         selectInput(
             "gender",
             "Select gender:",
-            choices = c("Both" = "both", "Male" = "1", "Female" = "2"),
+            choices = c("Both" = "both", "Male" = "Male", "Female" = "Female"),
             selected = "both"
         ),
         sliderInput("ageRange", "Age range:", 0, 100, value = c(0, 100), step = 1)
