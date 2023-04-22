@@ -5,7 +5,7 @@ library(ggplot2)
 library(DT)
 library(haven)
 library(shinydashboard)
-
+library(plotly)
 
 
 #Load datasets
@@ -83,8 +83,9 @@ ui <- dashboardPage(
             ),
             tabItem(
                 tabName = "vizTab",
-                plotOutput("interactivePlot"),
-                plotOutput("histogramPlot") # Add the histogram output
+                plotly::plotlyOutput("interactivePlot"),
+                plotly::plotlyOutput("histogramPlot")
+                
             )
         )
     )
@@ -116,19 +117,23 @@ server <- function(input, output, session) {
         )
     })
     
-    output$interactivePlot <- renderPlot({
-        ggplot(reactive_data(), aes_string(x = "age", y = input$variable, color = "gender")) +
+    output$interactivePlot <- plotly::renderPlotly({
+        p <- ggplot(reactive_data(), aes_string(x = "age", y = input$variable, color = "gender")) +
             geom_point(alpha = 0.5) +
             labs(title = paste0("Scatterplot of ", input$variable, " vs. Age"), x = "Age", y = input$variable) +
             theme_minimal()
+        ggplotly(p)
     })
     
-    output$histogramPlot <- renderPlot({
-        ggplot(reactive_data(), aes_string(x = input$variable)) +
+    
+    output$histogramPlot <- plotly::renderPlotly({
+        p <- ggplot(reactive_data(), aes_string(x = input$variable)) +
             geom_histogram(binwidth = 1, color = "black", fill = "lightblue") +
             labs(title = paste0("Histogram of ", input$variable), x = input$variable, y = "Frequency") +
             theme_minimal()
+        ggplotly(p)
     })
+    
 }
 
 
